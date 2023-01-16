@@ -1,0 +1,12 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /rabbitmq
+
+spring:
+  rabbitmq:
+    host: 192.168.0.196
+    port: 5672
+    username: admin
+    password: admin
+    virtualHost: smart_test
