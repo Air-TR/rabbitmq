@@ -21,6 +21,12 @@ public class Sender {
     @Resource
     private AmqpTemplate amqpTemplate;
 
+    /**
+     * 发送消息
+     *
+     * @param queue
+     * @param msg
+     */
     public void send(String queue, String msg) {
         // 方式一
         amqpTemplate.convertAndSend(queue, msg);
@@ -29,6 +35,13 @@ public class Sender {
 //        amqpTemplate.send(queue, createMessage(msg));
     }
 
+    /**
+     * 发送并接收返回值
+     *
+     * @param queue
+     * @param msg
+     * @return
+     */
     public String sendAndReceive(String queue, String msg) {
         Message receive = amqpTemplate.sendAndReceive(queue, createMessage(msg));
         return receive.toString();
